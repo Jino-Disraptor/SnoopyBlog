@@ -1,0 +1,34 @@
+pip install django
+pip install django-crispy-forms
+django-admin startproject project_name
+cd into project folder
+you will see your root folder inside this will be another folder that is the same name as your root folder as well as a manage.py file
+inside the root folder run python manage.py startapp your_app_name
+this creates an app, you can create many apps inside the root folder, for example, a blog app, a store app, etc
+Some of the files and folders that you see in this project are not created automatically so you will have to create them manually. The files inside these folders explain what they are for and how to use them
+
+whenever you create a new app make sure to add it to the installed apps in the projects settings.py file
+
+C:your_project_name
+├───blog
+│ ├───migrations
+│ │ └───**pycache**
+│ ├───static
+│ │ └───blog
+│ ├───templates
+│ │ └───blog
+│ └───**pycache**
+└───your_project_name
+└───**pycache**
+
+to configure the admin page we first have to run python manage.py makemigrations.
+Then run python manage.py migrate
+then python manage.py createsuperuser
+enter username, email address and password
+
+The admin page provides a GUI where we can manage all the data contained in our app
+
+Password is jino123
+username jinorigney
+
+Register your models on the admin site in admin.py in the blog directory

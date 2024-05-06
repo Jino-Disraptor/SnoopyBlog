@@ -1,0 +1,31 @@
+<!-- This is the home page-->
+<!-- Templates directory is created manually inside your app directory-->
+<!-- Inside templates directory you have to create another directory with the same name as your app, this is Django convention and how it searches for pages-->
+
+<!--To make use of the base template we reference it like this-->
+<!--We then wrap everything that is unique inside these block and it is good practice to name these blocks incase you have multiple blocks so you can keep track of them. We named these blocks "content"-->
+{% extends "blog/base.html" %} {% block content %}
+<!--Use curly braces with % to write code and double curly braces to access variables-->
+<!--This is coming from views.py-->
+{% for post in posts %}
+
+<article class="media content-section">
+  <img
+    class="rounded-circle article-img"
+    src="{{ post.author.profile.image.url }}"
+  />
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="#">{{ post.author }}</a>
+      <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+    </div>
+    <h2>
+      <a class="article-title" href="{% url 'post-detail' post.id %}"
+        >{{ post.title }}</a
+      >
+    </h2>
+    <p class="article-content">{{ post.content }}</p>
+  </div>
+</article>
+
+{% endfor %} {% endblock content %}

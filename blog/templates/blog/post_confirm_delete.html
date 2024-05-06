@@ -1,0 +1,25 @@
+<!-- This is the blog post and update page-->
+<!-- Templates directory is created manually inside your app directory-->
+<!-- Inside templates directory you have to create another directory with the same name as your app, this is Django convention and how it searches for pages-->
+<!--This page extends the base.html page and everything unique in this page goes inside the content block -->
+<!--Django uses this form as it's post and update page by default when using class based views that is why we don't have to create separate pages for creating a post and updating a post-->
+
+{% extends "blog/base.html" %} {% block content %}
+<div class="content-section">
+  <form method="POST">
+    {% csrf_token %}
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">Delete Post</legend>
+      <h2>Are you sure you want to delete the post "{{object.title}}"</h2>
+    </fieldset>
+    <div class="form-group">
+      <button class="btn btn-outline-danger" type="submit">Yes, Delete</button>
+      <a
+        class="btn btn-outline-secondary"
+        href="{% url 'post-detail' object.id %}"
+        >Cancel</a
+      >
+    </div>
+  </form>
+</div>
+{% endblock content %}

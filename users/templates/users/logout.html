@@ -1,0 +1,15 @@
+<!-- This is the logout page-->
+<!-- Templates directory is created manually inside your app directory-->
+<!-- Inside templates directory you have to create another directory with the same name as your app, this is Django convention and how it searches for pages-->
+<!--This page extends the base.html page and everything unique in this page goes inside the content block -->
+
+{% extends "blog/base.html" %} {% block content %}
+<h2>You have been logged out</h2>
+<div class="content-section">
+  <div class="border-top pt-3">
+    <small class="text-muted">
+      <a href="{% url 'login' %}">Log In Again</a>
+    </small>
+  </div>
+</div>
+{% endblock content %}
